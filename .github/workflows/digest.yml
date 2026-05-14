@@ -21,6 +21,7 @@ jobs:
       - name: Install deps
         run: |
           pip install -r requirements.txt
+          pip install -e .
 
       - name: Run pipeline
         run: python -m daily_digest.main
