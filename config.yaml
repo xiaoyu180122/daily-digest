@@ -59,14 +59,24 @@ sources:
     language: zh
     category_hint: 科技
 
+  # ─── 新增中文源 ────────────────────────────────────
+  - id: ithome
+    name: IT之家
+    type: rss
+    url: https://www.ithome.com/rss/
+    language: zh
+    category_hint: 科技
+
   # ─── 以下源可能需要翻墙或需要修復 RSS URL ──────
-  # Anthropic Blog — RSS URL 需要确认
-  # - id: anthropic
-  #   name: Anthropic Blog
+  # V2EX — 有时连接不稳定，取消注释即可启用
+  # - id: v2ex
+  #   name: V2EX
   #   type: rss
-  #   url: https://www.anthropic.com/rss/feed.xml
-  #   language: en
-  #   category_hint: AI
+  #   url: https://www.v2ex.com/index.xml
+  #   language: zh
+  #   category_hint: 技术
+
+  # Anthropic Blog — RSS URL 需要确认
 
   # V2EX — 连接被拒（GFW 或网络环境问题）
   # - id: v2ex
@@ -108,15 +118,19 @@ classifier:
       - 开源, 编程, 前端, 后端, 架构, 性能优化
 
     政治:
-      - 中美, 制裁, 法案, 白宫, 国会, 外交部
+      - 中美, 制裁, 关税, 台湾, 香港, 国防, 外交部
       - election, sanction, congress, diplomacy, geopolitics
+      - military, tariff, china policy, white house, pentagon
+      - 特朗普, 拜登, 国会, 白宫, 五角大楼, 外交部
 
     经济:
       - stock, market, inflation, fed, 股市, 经济, 加息
-      - startup, funding, 融资, IPO, 投资
+      - startup, funding, 融资, IPO, investment
+      - GDP, CPI, recession, tariff, trade war, 关税
+      - 利率, 降息, 通胀, 汇率, 财政
 
     科学:
       - physics, biology, chemistry, nature, science
-      - 物理, 生物, 化学, 论文, 研究
+      - 物理, 生物, 化学, 天文学, 医学, 气候
 
     # 匹配不到上述分类的自动归入"其他"

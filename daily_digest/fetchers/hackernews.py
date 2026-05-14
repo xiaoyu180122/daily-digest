@@ -58,12 +58,19 @@ class HackerNewsApiFetcher(SourceFetcher):
                     int(item.get("time", 0)), tz=timezone.utc
                 ) if item.get("time") else None
 
+                text = item.get("text") or ""
+                if not text.strip():
+                    comments = int(item.get("descendants", 0))
+                    text = f"👍 {score} points · 💬 {comments} comments"
+                else:
+                    text = text[:300]
+
                 articles.append(Article(
                     title=title,
                     url=url,
                     source_id=self.source_id,
                     source_name=self.source_name,
-                    summary=(item.get("text") or "")[:300],
+                    summary=text,
                     published_at=published,
                     language=self.language,
                     category=self.config.get("category_hint", "技术"),

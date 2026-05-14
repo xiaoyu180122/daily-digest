@@ -95,6 +95,14 @@ header .subtitle {
 .date-nav a {
     text-decoration: none;
     padding: 6px 14px;
+    text-align: center;
+    line-height: 1.3;
+}
+.date-nav a small {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    display: block;
+}
     border-radius: 8px;
     font-size: 0.875rem;
     background: var(--card-bg);
@@ -169,6 +177,7 @@ header .subtitle {
     color: var(--text);
     text-decoration: none;
 }
+.article-card .title a:visited { color: #94a3b8; }
 .article-card .title a:hover { text-decoration: underline; }
 .article-card .meta {
     font-size: 0.8rem;
@@ -191,9 +200,7 @@ header .subtitle {
     color: var(--text-secondary);
     margin-top: 8px;
     line-height: 1.5;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+    max-height: 4.5em;
     overflow: hidden;
 }
 .article-card .hot {
@@ -206,6 +213,29 @@ header .subtitle {
     color: var(--text-secondary);
     font-size: 0.9rem;
 }
+
+/* back to top */
+.back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--text);
+    color: var(--bg);
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.back-to-top.visible { opacity: 0.7; }
+.back-to-top.visible:hover { opacity: 1; }
 
 /* footer */
 footer {
@@ -237,7 +267,8 @@ def _generate_page(
     now = datetime.now(tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
     date_links = "".join(
-        f'<a href="./{d}.html"{" class=active" if d == current_date else ""}>{d}</a>'
+        f'<a href="./{d}.html"{" class=active" if d == current_date else ""}>'
+        f"{d} <small>{_weekday(d)}</small></a>"
         for d in all_dates[:14]
     )
 
@@ -307,8 +338,23 @@ def _generate_page(
 
     <footer>生成时间: {now} · <a href="https://github.com/xiaoyu180122/daily-digest" style="color:var(--text-secondary)">源码</a></footer>
 </div>
+<button class="back-to-top" onclick="window.scrollTo({{top:0,behavior:'smooth'}})" id="topBtn">↑</button>
+<script>
+window.addEventListener('scroll',function(){{document.getElementById('topBtn').classList.toggle('visible',window.scrollY>300)}});
+</script>
 </body>
 </html>"""
+
+
+def _weekday(date_str: str) -> str:
+    """2026-05-14 → 周四"""
+    import datetime
+    weekdays = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+    try:
+        dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+        return weekdays[dt.weekday()]
+    except (ValueError, IndexError):
+        return ""
 
 
 def _escape(text: str) -> str:
