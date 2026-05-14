@@ -11,6 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from daily_digest.models import CATEGORY_ORDER
+from daily_digest.translate import translate as _tl
 from daily_digest.storage import (
     get_connection,
     get_today_articles,
@@ -453,6 +454,13 @@ def generate_site(output_dir: str = "site", date: str | None = None) -> str:
     articles = get_today_articles(conn)
     categories = get_categories(conn)
     stats = get_stats(conn, target_date)
+
+    # 翻译所有英文标题和摘要为中文
+    for article in articles:
+        if article.language == "en":
+            article.title = _tl(article.title) or article.title
+            if article.summary:
+                article.summary = _tl(article.summary) or article.summary
 
     articles.sort(key=lambda a: (
         CATEGORY_ORDER.index(a.category) if a.category in CATEGORY_ORDER else 99,

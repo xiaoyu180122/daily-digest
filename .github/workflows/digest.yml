@@ -27,6 +27,13 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Restore translation cache
+        uses: actions/cache@v4
+        with:
+          path: data/translate_cache.json
+          key: translate-cache-v1
+          restore-keys: translate-cache-
+
       - name: Install deps
         run: pip install -r requirements.txt
 
