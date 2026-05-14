@@ -3,7 +3,6 @@ name = "daily-digest"
 version = "0.1.0"
 description = "每日信息聚合工具"
 requires-python = ">=3.11"
-packages = ["daily_digest", "daily_digest.fetchers"]
 dependencies = [
     "httpx>=0.28.0",
     "feedparser>=6.0.0",
