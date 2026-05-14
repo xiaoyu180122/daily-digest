@@ -1,0 +1,122 @@
+# 每日信息聚合 —— 配置文件
+# 按 Ctrl+C 在这里加新源/新分类，不！需！要！改！代！码！
+
+schedule:
+  timezone: Asia/Shanghai
+
+storage:
+  db_path: data/digest.db
+
+sources:
+  # ─── 英文源 ───────────────────────────────────────
+  - id: hackernews
+    name: Hacker News
+    type: rss
+    url: https://hnrss.org/frontpage?count=30
+    language: en
+    category_hint: 技术
+
+  - id: arxiv_cs
+    name: ArXiv CS
+    type: rss
+    url: http://export.arxiv.org/rss/cs
+    language: en
+    category_hint: AI
+
+  - id: openai
+    name: OpenAI Blog
+    type: rss
+    url: https://openai.com/blog/rss.xml
+    language: en
+    category_hint: AI
+    headers:
+      Accept-Encoding: gzip, deflate
+
+  - id: hn_api
+    name: HN Best
+    type: hackernews_api
+    language: en
+    category_hint: 技术
+
+  - id: github_trending
+    name: GitHub Trending
+    type: github_trending
+    language: en
+    category_hint: 技术
+
+  # ─── 中文源 ───────────────────────────────────────
+  - id: 36kr
+    name: 36氪
+    type: rss
+    url: https://36kr.com/feed
+    language: zh
+    category_hint: 科技
+
+  - id: solidot
+    name: Solidot
+    type: rss
+    url: https://www.solidot.org/index.rss
+    language: zh
+    category_hint: 科技
+
+  # ─── 以下源可能需要翻墙或需要修復 RSS URL ──────
+  # Anthropic Blog — RSS URL 需要确认
+  # - id: anthropic
+  #   name: Anthropic Blog
+  #   type: rss
+  #   url: https://www.anthropic.com/rss/feed.xml
+  #   language: en
+  #   category_hint: AI
+
+  # V2EX — 连接被拒（GFW 或网络环境问题）
+  # - id: v2ex
+  #   name: V2EX
+  #   type: rss
+  #   url: https://www.v2ex.com/index.xml
+  #   language: zh
+  #   category_hint: 技术
+
+  # 虎嗅 — 可能需要国内服务器
+  # - id: huxiu
+  #   name: 虎嗅
+  #   type: rss
+  #   url: https://www.huxiu.com/rss/0.xml
+  #   language: zh
+  #   category_hint: 科技
+
+  # 路透 — 需翻墙
+  # - id: reuters_tech
+  #   name: Reuters Tech
+  #   type: rss
+  #   url: https://www.reutersagency.com/feed/?taxonomy=best-sectors&post_type=best&best-sectors=tech
+  #   language: en
+  #   category_hint: 科技
+
+# 关键词分类规则
+# 每类多个关键词组，匹配任一组即归入该类
+# 优先级从上到下：排在前面分类的优先级更高
+classifier:
+  categories:
+    AI:
+      - llm, gpt, claude, transformer, neural network, deep learning
+      - openai, anthropic, hugging face, diffusion, embedding
+      - 人工智能, 大模型, 机器学习, 深度学习
+
+    技术:
+      - rust, typescript, go, react, kubernetes, docker, linux
+      - compiler, database, performance, open source
+      - 开源, 编程, 前端, 后端, 架构, 性能优化
+
+    政治:
+      - 中美, 制裁, 法案, 白宫, 国会, 外交部
+      - election, sanction, congress, diplomacy, geopolitics
+
+    经济:
+      - stock, market, inflation, fed, 股市, 经济, 加息
+      - startup, funding, 融资, IPO, 投资
+
+    科学:
+      - physics, biology, chemistry, nature, science
+      - 物理, 生物, 化学, 论文, 研究
+
+    # 匹配不到上述分类的自动归入"其他"

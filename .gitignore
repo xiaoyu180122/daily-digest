@@ -1,0 +1,10 @@
+# 数据库（自动生成）
+data/
+output/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+venv/
