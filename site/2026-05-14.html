@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日信息聚合 · 2026-05-14</title>
+<style>
+:root {
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text: #0f172a;
+    --text-secondary: #64748b;
+    --border: #e2e8f0;
+    --hover: #f1f5f9;
+    --max-width: 800px;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0f172a;
+        --card-bg: #1e293b;
+        --text: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --border: #334155;
+        --hover: #1e293b;
+    }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0 16px;
+}
+.container { max-width: var(--max-width); margin: 0 auto; padding: 24px 0 80px; }
+
+/* header */
+header {
+    text-align: center;
+    padding: 40px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+}
+header h1 { font-size: 1.5rem; font-weight: 700; }
+header .subtitle {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-top: 4px;
+}
+
+/* date nav */
+.date-nav {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+.date-nav a {
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    transition: all .15s;
+}
+.date-nav a:hover, .date-nav a.active {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+}
+
+/* overview */
+.overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 40px;
+}
+.stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+}
+.stat-card .num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.stat-card .label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+/* category section */
+.category-section { margin-bottom: 40px; }
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 16px;
+}
+.category-header h2 { font-size: 1.2rem; font-weight: 600; }
+.category-header .count {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* article card */
+.article-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: border-color .15s;
+}
+.article-card:hover { border-color: var(--text-secondary); }
+.article-card .title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+.article-card .title a {
+    color: var(--text);
+    text-decoration: none;
+}
+.article-card .title a:hover { text-decoration: underline; }
+.article-card .meta {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.article-card .source-badge {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    background: var(--hover);
+    border: 1px solid var(--border);
+}
+.article-card .summary {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.article-card .hot {
+    color: #f59e0b;
+    letter-spacing: 1px;
+}
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* footer */
+footer {
+    text-align: center;
+    padding: 24px 0;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>📰 每日信息聚合</h1>
+        <div class="subtitle">2026-05-14 · 共 181 条 · 7 个来源</div>
+    </header>
+
+    <div class="date-nav"><a href="./2026-05-14.html" class=active>2026-05-14</a></div>
+
+    <div class="overview"><div class="stat-card"><div class="num">30</div><div class="label">OpenAI Blog</div></div><div class="stat-card"><div class="num">30</div><div class="label">Hacker News</div></div><div class="stat-card"><div class="num">30</div><div class="label">ArXiv CS</div></div><div class="stat-card"><div class="num">30</div><div class="label">36氪</div></div><div class="stat-card"><div class="num">23</div><div class="label">HN Best</div></div><div class="stat-card"><div class="num">20</div><div class="label">Solidot</div></div><div class="stat-card"><div class="num">18</div><div class="label">GitHub Trending</div></div></div>
+
+    
+        <div class="category-section">
+            <div class="category-header" style="border-bottom-color:#6366f140">
+                <span>🤖</span>
+                <h2>AI</h2>
+                <span class="count">(59 条)</span>
+            </div>
+            
+            <div class="article-card">
+                <div class="title"><a href="https://news.ycombinator.com/item?id=48128003" target="_blank" rel="noopener">Tell HN: Dont use Claude Design, lost access to my projects after unsubscribing</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                <div class="summary">I wanted to try codex after 5 months of claude code max subscription. And then I went back to my previous projects on claude design only to realize I don&amp;#x27;t have access to them anymore.&lt;p&gt;This is a first. I never lost access to any of my past sessions because I unsubscribed in any of the LLM app</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.anthropic.com/news/claude-for-small-business" target="_blank" rel="noopener">Claude for Small Business</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://www.anthropic.com/news/claude-for-small-business
+Comments URL: https://news.ycombinator.com/item?id=48130950
+Points: 256
+# Comments: 190</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/DrCatHicks/learning-opportunities" target="_blank" rel="noopener">A Claude Code and Codex Skill for Deliberate Skill Development</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://github.com/DrCatHicks/learning-opportunities
+Comments URL: https://news.ycombinator.com/item?id=48130679
+Points: 48
+# Comments: 12</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/mattpocock/skills" target="_blank" rel="noopener">mattpocock/skills [Shell]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Skills for Real Engineers. Straight from my .claude directory.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/rasbt/LLMs-from-scratch" target="_blank" rel="noopener">rasbt/LLMs-from-scratch [Jupyter Notebook]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Implement a ChatGPT-like LLM in PyTorch from scratch, step by step</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12507" target="_blank" rel="noopener">Can LLM Agents Simulate Dynamic Networks? A Case Study on Email Networks with Phishing Synthesis</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12507v1 Announce Type: new 
+Abstract: While Large Language Model (LLM) multi-agent systems (MAS) offer a transformative approach to simulating human behavior in complex systems, it remains largely unexplored whether these simulations can replicate realistic structural and temporal dynamic</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12508" target="_blank" rel="noopener">Interoperability Effects: Extending DeFi Lending Risk Models to Multi-Chain Environments</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12508v1 Announce Type: new 
+Abstract: On-chain lending has expanded across multiple distributed ledgers as DeFi becomes increasingly multi-chain. This environment introduces novel technical and financial mechanisms, particularly cross-blockchain communication and asset transfer protocols,</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12509" target="_blank" rel="noopener">Representing Higher-Order Networks: A Survey of Graph-Based Frameworks</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12509v1 Announce Type: new 
+Abstract: Many real-world phenomena are naturally modeled by graphs and networks. However, classical graph models are often limited to pairwise interactions and may not adequately capture the richer structures that arise in practice. Higher-order graph formalis</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12511" target="_blank" rel="noopener">Real-World Challenges in Fake News Detection: Dealing with Posts by Cold Users</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12511v1 Announce Type: new 
+Abstract: Social media serves as a primary source of information in the current digital era. Many people consume a vast range of information in a very short span, yet, amidst the stream of genuine information, fake news and rumors continue to spread. The need f</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12512" target="_blank" rel="noopener">Beyond Individual Mimicry: Constructing Human-Like Social network with Graph-Augmented LLM Agents</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12512v1 Announce Type: new 
+Abstract: Driven by large language models (LLMs), social bot can autonomously engage in local interactions, whose human-like behaviors enable them to evade social bot detection. However, while these botnets exhibit realistic local social interactions, they fail</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12513" target="_blank" rel="noopener">SP-GCRL: Influence Maximization on Incomplete Social Graphs</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12513v1 Announce Type: new 
+Abstract: Influence maximization (IM) in real platforms is challenged by incomplete, noisy social graphs and non-stationary diffusion dynamics. We propose SP-GCRL, a social-propagation-aware graph contrastive reinforcement learning framework that learns end-to-</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12514" target="_blank" rel="noopener">Structural Diversity Drives Disruptive Scientific Innovation</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12514v1 Announce Type: new 
+Abstract: Scientific innovation increasingly depends on collaboration, yet the organizational structure that fosters breakthrough ideas remains poorly understood. Existing metrics - such as team size or compositional diversity - capture readily observable chara</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12515" target="_blank" rel="noopener">Mitigating Cross-Lingual Cultural Inconsistencies in LLMs via Consensus-Driven Preference Optimisation</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12515v1 Announce Type: new 
+Abstract: Despite their impressive capabilities, multilingual large language models (MLLMs) frequently exhibit inconsistent behaviour when the prompt&#x27;s language changes. While such adaptation is generally desirable, it becomes a critical failure when a user&#x27;s i</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12516" target="_blank" rel="noopener">Domain Adaptation of Large Language Models for Polymer-Composite Additive Manufacturing Using Retrieval-Augmented Generation and Fine-Tuning</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12516v1 Announce Type: new 
+Abstract: General-purpose large language models (LLMs) often struggle to generate reliable responses in specialized engineering domains due to limited domain grounding and insufficient exposure to structured technical knowledge. This study investigates practica</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12517" target="_blank" rel="noopener">Bridging the Missing-Modality Gap: Improving Text-Only Calibration of Vision Language Models</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12517v1 Announce Type: new 
+Abstract: Vision-language models (VLMs) are often deployed on text-only inputs, although they are trained with images. We find that removing the vision modality causes large drops in accuracy and severe miscalibration, and the model does not behave like its ori</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12518" target="_blank" rel="noopener">TimelineReasoner: Advancing Timeline Summarization with Large Reasoning Models</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12518v1 Announce Type: new 
+Abstract: The proliferation of online news poses a challenge to extracting structured timelines from unstructured content. While recent studies have shown that Large Language Models (LLMs) can assist Timeline Summarization (TLS), these approaches primarily trea</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12519" target="_blank" rel="noopener">Correct Answers from Sound Reasoning: Verifiable Process Supervision for Language Models</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12519v1 Announce Type: new 
+Abstract: Training language models to produce both correct answers and sound reasoning remains an open challenge. Reinforcement learning with verifiable rewards typically optimizes only final outcomes, which can lead to a failure mode where task accuracy improv</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12520" target="_blank" rel="noopener">BoostTaxo: Zero-Shot Taxonomy Induction via Boosting-Style Agentic Reasoning and Constraint-Aware Calibration</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12520v1 Announce Type: new 
+Abstract: Taxonomy induction is crucial for organizing concepts into explicit and interpretable semantic hierarchies. While existing methods have achieved promising results, their generalization, structural reliability, and efficiency remain limited, hindering </div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12521" target="_blank" rel="noopener">ToolWeave: Structured Synthesis of Complex Multi-Turn Tool-Calling Dialogues</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12521v1 Announce Type: new 
+Abstract: Multi-turn tool calling is essential for LLMs to function as autonomous agents, yet synthesizing the training data required for these capabilities remains a fundamental challenge. Existing synthetic data generation pipelines often produce unrealistic </div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12522" target="_blank" rel="noopener">Differences in Text Generated by Diffusion and Autoregressive Language Models</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12522v1 Announce Type: new 
+Abstract: Diffusion language models (DLMs) are promising alternatives to autoregressive language models (ARMs), yet the intrinsic differences in their generated text remain underexplored. We first find empirically that off-the-shelf DLMs exhibit lower $n$-gram </div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12524" target="_blank" rel="noopener">Stress-Testing the Reasoning Competence of LLMs With Proofs Under Minimal Formalism</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12524v1 Announce Type: new 
+Abstract: We introduce ProofGrid, a benchmark suite for evaluating LLM reasoning through machine-checkable proofs rather than final answers alone. ProofGrid contains 15 tasks spanning proof writing, proof checking, proof masking, and proof gap-filling. Tasks ar</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12526" target="_blank" rel="noopener">&quot;F*** You Biden&quot;: Cross-Partisan Electoral Toxicity on X</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12526v1 Announce Type: new 
+Abstract: Political discourse on social media has grown increasingly toxic, with electoral periods amplifying partisan hostility and cross-group attacks. Yet it remains unclear whether toxicity in online political speech reflects how partisans communicate withi</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12528" target="_blank" rel="noopener">MorphOPC: Advancing Mask Optimization with Multi-scale Hierarchical Morphological Learning</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12528v1 Announce Type: new 
+Abstract: As feature sizes shrink to the nanometer scale, accurately transferring circuit patterns from photomasks to silicon wafers becomes increasingly challenging. Optical proximity correction (OPC) is widely used to ensure pattern fidelity and manufacturabi</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12529" target="_blank" rel="noopener">BackFlush: Knowledge-Free Backdoor Detection and Elimination with Watermark Preservation in Large Language Models</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12529v1 Announce Type: new 
+Abstract: In recent trends, one can observe Large Language Models (LLMs) are exposed to backdoor attacks where vicious triggers added during training or model editing to elicit harmful outputs on specific input patterns while maintaining clean performance on no</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12530" target="_blank" rel="noopener">In-Situ Behavioral Evaluation for LLM Fairness, Not Standardized-Test Scores</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12530v1 Announce Type: new 
+Abstract: LLM fairness should be evaluated through in-situ conversational behavior rather than standardized-test Q&amp;A benchmarks. We show that the standardized-test paradigm can be structurally unreliable: surface-level prompt construction choices, although enti</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12534" target="_blank" rel="noopener">BioSEN: A Bio-acoustic Signal Enhancement Network for Animal Vocalizations</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12534v1 Announce Type: new 
+Abstract: Most work in audio enhancement targets human speech, while bioacoustics is less studied due to noisy recordings and the distinct traits of animal sounds. To fill this gap, we adapt speech enhancement methods and build BioSEN, a model made for bioacous</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12535" target="_blank" rel="noopener">Ghost in the Context: Measuring Policy-Carriage Failures in Decision-Time Assembly</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12535v1 Announce Type: new 
+Abstract: LM agents do not act on raw interaction history; they act on a bounded decision state assembled by truncation, summarization, reordering, and rewriting. If directive-bearing state is dropped, weakened, or rebound during that step, an agent can cross a</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/p/3808362853834502?f=rss" target="_blank" rel="noopener">8点1氪丨林俊旸新公司估值20亿美金；贾跃亭宣布转战机器人业务；网红糖果被发现掺超高剂量伟哥</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">今日热点导览
+  
+   腾讯刘炽平：腾讯没有大裁员计划
+   韩国政府称将支持三星与工会对话解决纠纷，以避免罢工
+   中美经贸磋商在韩国开始举行
+   宇树科技已注册多款机器人商标
+   TikTok在印尼、美国、日本三国官宣生活服务品牌TikTok GO
+  
+  TOP 3 大新闻
+  林俊旸创业，新公司估值约20亿美金
+  36氪独家获悉，前阿里千问大模型技术负责人林俊旸近期已经开启创业，考虑方向包括世界模型和具身大脑。目前，林俊旸已经招募数名字节、腾讯和海外背景的成员，并以约20亿美金的估值开启融资，接触基金包括红杉中国、高榕创投等。
+  贾跃亭造车12年未果，宣布转战机器人
+  </div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84289" target="_blank" rel="noopener">美国左右派都对 AI 表示担忧</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">右派的 Steve Bannon 和左派的 Bernie Sanders 在很多问题上的观点相去甚远，但他们都认为 AI 对工人阶级是一场灾难。Sanders 说 AI 寡头想要的不仅仅是取代特定工作岗位，他们想要取代工人。Bannon 说硅谷不在乎普通人。民调显示，美国是世界最关注 AI 的国家之一，既是全球 AI 的主要研发者也是 AI 的主要反对者。美国反 AI 的情绪在持续高涨。缅因州通过了美国首个全州范围内的数据中心建设禁令，虽然禁令被州长否决。OpenAI CEO Sam Altman 的家被人投掷了燃烧弹。四分之一的美国人接受将暴力作为一种反对手段。硅谷喜欢将 AI 比作工业革命</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/p/3807623172235011?f=rss" target="_blank" rel="noopener">2026 AI最佳场景渗透案例重磅揭晓</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">&amp;nbsp;
+  &amp;nbsp;
+  如果用一个词来描述当下的AI产业，“落地”已有些过时，“渗透”则更为准确。
+  “渗透”意味着AI不再是发布会上的炫技Demo，也不再是PPT里的概念模型，而是像水电煤一样，悄无声息地融入企业运营的毛细血管和用户日常的消费决策中。
+  据麦肯锡《2025 AI应用现状调研》报告显示，在国内大模型的快速崛起推动下，生成式AI已广泛渗透至企业运营中，83%的企业在至少一个职能中实现了常态化使用，这一比例显著领跑全球。更关键的是，45%的受访企业表示已实现AI的规模化或全面部署，远超全球38%的平均线。
+  趋势和数据的背后，是行业正在形成的共识：AI的叙事主线已</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/building-codex-windows-sandbox" target="_blank" rel="noopener">Building a safe, effective sandbox to enable Codex on Windows</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Learn how OpenAI built a secure sandbox for Codex on Windows, enabling safe, efficient coding agents with controlled file access and network restrictions.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/p/3807382930251523?f=rss" target="_blank" rel="noopener">林俊旸创业，新公司估值约20亿美金丨智能涌现独家</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">文｜周鑫雨 邓咏仪
+  编辑｜杨轩
+  林俊旸以创业者的身份，重新加入AI模型的战场。
+  《智能涌现》独家获悉，前阿里千问大模型技术负责人林俊旸近期已经开启创业，考虑方向包括世界模型和具身大脑。
+  目前，林俊旸已经招募数名字节、腾讯和海外背景的成员，并以约20亿美金的估值开启融资，接触基金包括红杉中国、高榕创投等。
+  截至发稿前，有关上述信息，林俊旸尚未回复。
+  时间距离3月初的那场“闪电”诀别，已经过去了两个月。
+  2026年3月4日凌晨，林俊旸在X上宣布离开千问：“me stepping down. bye my beloved qwen（我卸任了。再见了，我深爱的千问）。”更早</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/our-response-to-the-tanstack-npm-supply-chain-attack" target="_blank" rel="noopener">Our response to the TanStack npm supply chain attack</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">OpenAI details its response to the TanStack “Mini Shai-Hulud” supply chain attack, outlines protections taken to secure systems and signing certificates, and explains why macOS users must update OpenAI apps by June 12, 2026. Learn what happened, what was affected, and how OpenAI is strengthening def</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/academy/how-finance-teams-use-codex" target="_blank" rel="noopener">How finance teams use Codex</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">See how finance teams can use Codex to build MBRs, reporting packs, variance bridges, model checks, and planning scenarios from real work inputs.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/nvidia" target="_blank" rel="noopener">How NVIDIA engineers and researchers build with Codex</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Teams use Codex with GPT-5.5 to ship production systems and turn research ideas into runnable experiments.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/autoscout24" target="_blank" rel="noopener">AutoScout24 scales engineering with AI-powered workflows</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Learn how AutoScout24 Group uses Codex and ChatGPT to speed development cycles, improve code quality, and expand AI adoption.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/signals/research/2026q1-update" target="_blank" rel="noopener">How ChatGPT adoption broadened in early 2026</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">ChatGPT adoption surged in Q1 2026, with fastest growth among users over 35 and more balanced gender usage, signaling broader mainstream AI adoption.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/openai-campus-network-student-club-interest-form" target="_blank" rel="noopener">OpenAI Campus Network: Student club interest form</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Join the OpenAI Campus Network—connect student clubs worldwide, access AI tools, host events, and build an AI-powered campus community.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/openai-launches-the-deployment-company" target="_blank" rel="noopener">OpenAI launches DeployCo to help businesses build around intelligence</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">OpenAI launches DeployCo, a new enterprise deployment company built to help organizations bring frontier AI into production and turn it into measurable business impact.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/running-codex-safely" target="_blank" rel="noopener">Running Codex safely at OpenAI</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">How OpenAI runs Codex securely with sandboxing, approvals, network policies, and agent-native telemetry to support safe and compliant coding agent adoption.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber" target="_blank" rel="noopener">Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">OpenAI expands Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber, helping verified defenders accelerate vulnerability research and protect critical infrastructure.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/parloa" target="_blank" rel="noopener">Parloa builds service agents customers want to talk to</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Parloa leverages OpenAI models to power scalable, voice-driven AI customer service agents, enabling enterprises to design, simulate, and deploy reliable, real-time interactions.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api" target="_blank" rel="noopener">Advancing voice intelligence with new models in the API</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Explore new realtime voice models in the OpenAI API that can reason, translate, and transcribe speech, enabling more natural and intelligent voice experiences.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/testing-ads-in-chatgpt" target="_blank" rel="noopener">Testing ads in ChatGPT</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">OpenAI begins testing ads in ChatGPT to support free access, with clear labeling, answer independence, strong privacy protections, and user control.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/introducing-trusted-contact-in-chatgpt" target="_blank" rel="noopener">Introducing Trusted Contact in ChatGPT</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Introducing Trusted Contact in ChatGPT, an optional safety feature that notifies someone you trust if serious self-harm concerns are detected.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/simplex" target="_blank" rel="noopener">Simplex rethinks software development with Codex</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Simplex boosts software development with ChatGPT Enterprise and Codex, reducing design, build, and testing time while scaling AI-driven workflows.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/how-chatgpt-protects-privacy" target="_blank" rel="noopener">How ChatGPT learns about the world while protecting privacy</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Learn how ChatGPT safeguards your privacy, reduces personal data in training, and gives you control over whether your conversations improve AI models.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/uber" target="_blank" rel="noopener">Uber uses OpenAI to help people earn smarter and book faster</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Uber uses OpenAI to power AI assistants and voice features that help drivers earn smarter and riders book faster across a global real-time marketplace.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/introducing-chatgpt-futures-class-of-2026" target="_blank" rel="noopener">Introducing ChatGPT Futures: Class of 2026</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Meet the ChatGPT Futures Class of 2026—26 student innovators using AI to build, research, and drive real-world impact. Discover how this generation is redefining learning, creativity, and opportunity with ChatGPT.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/singular-bank" target="_blank" rel="noopener">Singular Bank helps bankers move fast with ChatGPT and Codex</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Singular Bank built Singularity, an internal assistant using ChatGPT and Codex to help bankers save 60–90 minutes daily on meeting prep, portfolio analysis, and follow-up.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/introducing-b2b-signals" target="_blank" rel="noopener">How frontier firms are pulling ahead</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">OpenAI’s B2B Signals research shows how frontier enterprises deepen AI adoption, scale Codex-powered agentic workflows, and build durable competitive advantage.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/gpt-5-5-instant" target="_blank" rel="noopener">GPT-5.5 Instant: smarter, clearer, and more personalized</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">GPT-5.5 Instant updates ChatGPT’s default model with smarter, more accurate answers, reduced hallucinations, and improved personalization controls.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/mrc-supercomputer-networking" target="_blank" rel="noopener">Unlocking large scale AI training networks with MRC (Multipath Reliable Connection)</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">OpenAI introduces MRC (Multipath Reliable Connection), a new supercomputer networking protocol released via OCP to improve resilience and performance in large-scale AI training clusters.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/gpt-5-5-instant-system-card" target="_blank" rel="noopener">GPT-5.5 Instant System Card</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/new-ways-to-buy-chatgpt-ads" target="_blank" rel="noopener">New ways to buy ChatGPT ads</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">OpenAI expands ChatGPT ads with a beta self-serve Ads Manager, CPC bidding, and enhanced measurement tools—built to protect privacy and keep conversations separate from ads.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/advancing-youth-safety-in-emea" target="_blank" rel="noopener">Advancing youth safety and wellbeing in EMEA</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Explore OpenAI’s European Youth Safety Blueprint and EMEA Youth &amp; Wellbeing Grants, advancing safe, responsible AI for teens, families, and educators.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/openai-pwc-finance-collaboration" target="_blank" rel="noopener">OpenAI and PwC collaborate to reimagine the office of the CFO</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">OpenAI and PwC are partnering to help enterprises use AI agents to automate finance workflows, improve forecasting, strengthen controls, and modernize the CFO function.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/delivering-low-latency-voice-ai-at-scale" target="_blank" rel="noopener">How OpenAI delivers low-latency voice AI at scale</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">How OpenAI rebuilt its WebRTC stack to power real-time Voice AI with low latency, global scale, and seamless conversational turn-taking.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/advanced-account-security" target="_blank" rel="noopener">Introducing Advanced Account Security</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Introducing Advanced Account Security: phishing-resistant login, stronger recovery, and enhanced protections to safeguard sensitive data and prevent account takeover.</div>
+            </div>
+        </div>
+        <div class="category-section">
+            <div class="category-header" style="border-bottom-color:#0ea5e940">
+                <span>🖥️</span>
+                <h2>技术</h2>
+                <span class="count">(77 条)</span>
+            </div>
+            
+            <div class="article-card">
+                <div class="title"><a href="https://kotaku.com/kickstarter-is-the-latest-platform-seemingly-forced-to-ban-adult-content-by-payment-processors-2000695648" target="_blank" rel="noopener">Kickstarter is forced to ban adult content by payment processors</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://ossresistance.com/" target="_blank" rel="noopener">Open Source Resistance: keep OSS alive on company time</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://jorijn.com/en/blog/leaving-github-for-forgejo/" target="_blank" rel="noopener">Leaving GitHub for Forgejo</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://monokai.com/articles/how-i-moved-my-digital-stack-to-europe/" target="_blank" rel="noopener">I moved my digital stack to Europe</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.08419" target="_blank" rel="noopener">Deterministic Fully-Static Whole-Binary Translation Without Heuristics</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.spacex.com/updates#starship-v3" target="_blank" rel="noopener">Starship V3</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.savethearchive.com/newsleaders/" target="_blank" rel="noopener">Tell NYT, Atlantic, USA Today to keep Wayback Machine</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/FULU-Foundation/OrcaSlicer-bambulab" target="_blank" rel="noopener">Restore full BambuNetwork support for Bambu Lab printers</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/Genymobile/scrcpy/releases/tag/v4.0" target="_blank" rel="noopener">Scrcpy v4.0</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://typesetinthefuture.com/2016/02/18/futuristic/" target="_blank" rel="noopener">How to make your text look futuristic (2016)</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://lists.thekelleys.org.uk/pipermail/dnsmasq-discuss/2026q2/018471.html" target="_blank" rel="noopener">CERT is releasing six CVEs for serious security vulnerabilities in dnsmasq</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://duckdb.org/2026/05/12/quack-remote-protocol" target="_blank" rel="noopener">Quack: The DuckDB Client-Server Protocol</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://googlebook.google/" target="_blank" rel="noopener">Googlebook</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                <div class="summary">&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;www.reddit.com&amp;#x2F;r&amp;#x2F;Android&amp;#x2F;comments&amp;#x2F;1tb8xls&amp;#x2F;introducing_googlebook_a_new_category_of_laptops&amp;#x2F;&quot; rel=&quot;nofollow&quot;&gt;https:&amp;#x2F;&amp;#x2F;www.reddit.com&amp;#x2F;r&amp;#x2F;Android&amp;#x2F;comments&amp;#x2F;1tb8xls&amp;#x2F;introducin...&lt;/a&gt;</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.eff.org/deeplinks/2026/05/canadas-bill-c-22-repackaged-version-last-years-surveillance-nightmare" target="_blank" rel="noopener">Canada’s Bill C-22 Is a Repackaged Version of Last Year’s Surveillance Nightmare</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://obsidian.md/blog/future-of-plugins/" target="_blank" rel="noopener">The Future of Obsidian Plugins</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.epicfurious.com/" target="_blank" rel="noopener">Operation: Epic Furious</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.nair.sh/guides-and-opinions/communicating-your-expertise/why-senior-developers-fail-to-communicate-their-expertise" target="_blank" rel="noopener">Why senior developers fail to communicate their expertise</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.jeffgeerling.com/blog/2026/bambu-lab-abusing-open-source-social-contract/" target="_blank" rel="noopener">Bambu Lab is abusing the open source social contract</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://blog.maximeheckel.com/posts/on-rendering-the-sky-sunsets-and-planets/" target="_blank" rel="noopener">Rendering the Sky, Sunsets, and Planets</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.cnbc.com/2026/05/12/tiktok-instagram-social-media-addictive-eu-crack-down.html" target="_blank" rel="noopener">EU to crack down on TikTok, Instagram&#x27;s &#x27;addictive design&#x27; targeting kids</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://matklad.github.io/2026/05/12/software-architecture.html" target="_blank" rel="noopener">Learning Software Architecture</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/oven-sh/bun/pull/30412" target="_blank" rel="noopener">Rewrite Bun in Rust has been merged</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://github.com/oven-sh/bun/pull/30412
+Comments URL: https://news.ycombinator.com/item?id=48132488
+Points: 71
+# Comments: 54</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://classic7.lol/" target="_blank" rel="noopener">Classic 7 is a Windows 10 LTSC mod to look 1:1 to Windows 7</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://classic7.lol/
+Comments URL: https://news.ycombinator.com/item?id=48132030
+Points: 54
+# Comments: 41</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.tomshardware.com/tech-industry/cyber-security/microsoft-bitlocker-protected-drives-can-now-be-opened-with-just-some-files-on-a-usb-stick-yellowkey-zero-day-exploit-demonstrates-an-apparent-backdoor" target="_blank" rel="noopener">Microsoft BitLocker – YellowKey zero-day exploit</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://www.tomshardware.com/tech-industry/cyber-security/microsoft-bitlocker-protected-drives-can-now-be-opened-with-just-some-files-on-a-usb-stick-yellowkey-zero-day-exploit-demonstrates-an-apparent-backdoor
+Comments URL: https://news.ycombinator.com/item?id=48130519
+Points: 162
+# Com</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/glouw/nibble" target="_blank" rel="noopener">Show HN: Nibble</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">An attempt at a single pass LLVM frontend in ~3000 lines of C without external dependencies, malloc, or an AST. Included are some graphical examples. The IR isn&#x27;t perfect, and the README touches on one particular downfall
+
+Comments URL: https://news.ycombinator.com/item?id=48130186
+Points: 61
+# Comm</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://blogs.cisco.com/news/our-path-forward" target="_blank" rel="noopener">Cisco workforce reductions</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://blogs.cisco.com/news/our-path-forward
+Comments URL: https://news.ycombinator.com/item?id=48130123
+Points: 207
+# Comments: 194</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.deltatime.life/" target="_blank" rel="noopener">delta time</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://www.deltatime.life/
+Comments URL: https://news.ycombinator.com/item?id=48129953
+Points: 54
+# Comments: 30</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://pubs.rsc.org/en/content/articlelanding/2026/ay/d5ay01801c" target="_blank" rel="noopener">Avoiding and reducing microplastic false positives from dry glove contact</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://pubs.rsc.org/en/content/articlelanding/2026/ay/d5ay01801c
+Comments URL: https://news.ycombinator.com/item?id=48129934
+Points: 49
+# Comments: 7</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="http://www.scorch2000.com/web/" target="_blank" rel="noopener">Scorched Earth 2000 – Web</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: http://www.scorch2000.com/web/
+Comments URL: https://news.ycombinator.com/item?id=48129694
+Points: 262
+# Comments: 99</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent" target="_blank" rel="noopener">Princeton mandates proctoring for in-person exams, upending 133 year precedent</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent
+Comments URL: https://news.ycombinator.com/item?id=48126848
+Points: 329
+# Comments: 486</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.jdhodges.com/blog/macbook-neo-benchmarks-analysis/" target="_blank" rel="noopener">MacBook Neo Deep Dive: Benchmarks, Wafer Economics, and the 8GB Gamble</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://www.jdhodges.com/blog/macbook-neo-benchmarks-analysis/
+Comments URL: https://news.ycombinator.com/item?id=48125617
+Points: 221
+# Comments: 244</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.tryardent.com/" target="_blank" rel="noopener">Launch HN: Ardent (YC P26) – Postgres sandboxes in seconds with zero migration</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Hey HN! We’re Vikram and Evan from Ardent (https://tryardent.com). We&#x27;re building database sandboxes for you and your coding agents.In the last two years coding agents have gotten dramatically more capable at handling complex engineering tasks. But without access to a realistic sandbox at the DB lay</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://fredchan.org/blog/locality-domains-guide/" target="_blank" rel="noopener">Setting up a free *.city.state.us locality domain (2025)</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://fredchan.org/blog/locality-domains-guide/
+Comments URL: https://news.ycombinator.com/item?id=48122635
+Points: 562
+# Comments: 173</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://avkcode.github.io/blog/us-winning-ai-race.html" target="_blank" rel="noopener">The US is winning the AI race where it matters most: commercialization</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://avkcode.github.io/blog/us-winning-ai-race.html
+Comments URL: https://news.ycombinator.com/item?id=48121929
+Points: 202
+# Comments: 550</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.ycombinator.com/companies/substrate/jobs/T2fMBhD-technical-success-manager" target="_blank" rel="noopener">Substrate (YC S24) Is Hiring a Technical Success Manager</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://www.ycombinator.com/companies/substrate/jobs/T2fMBhD-technical-success-manager
+Comments URL: https://news.ycombinator.com/item?id=48120776
+Points: 0
+# Comments: 0</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank" rel="noopener">The Emacsification of Software</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://sockpuppet.org/blog/2026/05/12/emacsification/
+Comments URL: https://news.ycombinator.com/item?id=48118727
+Points: 305
+# Comments: 200</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arstechnica.com/tech-policy/2026/05/drop-database-what-not-to-do-after-losing-an-it-job/" target="_blank" rel="noopener">Twin brothers wipe 96 government databases minutes after being fired</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://arstechnica.com/tech-policy/2026/05/drop-database-what-not-to-do-after-losing-an-it-job/
+Comments URL: https://news.ycombinator.com/item?id=48115438
+Points: 434
+# Comments: 339</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/cactus-compute/needle" target="_blank" rel="noopener">Show HN: Needle: We Distilled Gemini Tool Calling into a 26M Model</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Hey HN, Henry here from Cactus. We open-sourced Needle, a 26M parameter function-calling (tool use) model. It runs at 6000 tok/s prefill and 1200 tok/s decode on consumer devices.We were always frustrated by the little effort made towards building agentic models that run on budget phones, so we cond</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.theatlantic.com/past/docs/unbound/flashbks/james/jnote.htm" target="_blank" rel="noopener">The Deathbed Notes of Henry James (1968)</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://www.theatlantic.com/past/docs/unbound/flashbks/james/jnote.htm
+Comments URL: https://news.ycombinator.com/item?id=48111652
+Points: 8
+# Comments: 0</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://dynomight.net/lifespan/" target="_blank" rel="noopener">Heritability of human life span is ~50% when heritability is redefined</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://dynomight.net/lifespan/
+Comments URL: https://news.ycombinator.com/item?id=48109772
+Points: 101
+# Comments: 57</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.ycombinator.com/companies/text-blaze/jobs/P4CCN62-the-blaze-no-ai-summer-internship" target="_blank" rel="noopener">Text Blaze (YC W21) Is Hiring for a No-AI Summer Internship</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://www.ycombinator.com/companies/text-blaze/jobs/P4CCN62-the-blaze-no-ai-summer-internship
+Comments URL: https://news.ycombinator.com/item?id=48107024
+Points: 0
+# Comments: 0</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://blog.andr2i.com/posts/2026-05-03-notes-from-optimizing-cpu-bound-go-hot-paths" target="_blank" rel="noopener">Notes from Optimizing CPU-Bound Go Hot Paths</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://blog.andr2i.com/posts/2026-05-03-notes-from-optimizing-cpu-bound-go-hot-paths
+Comments URL: https://news.ycombinator.com/item?id=48104285
+Points: 15
+# Comments: 2</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://text.marvinborner.de/2026-04-09-17.html" target="_blank" rel="noopener">Extraordinary Ordinals</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://text.marvinborner.de/2026-04-09-17.html
+Comments URL: https://news.ycombinator.com/item?id=48102901
+Points: 25
+# Comments: 11</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://bild.ai/jobs" target="_blank" rel="noopener">Bild AI (YC W25) Is Hiring Founding Product Engineers</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://bild.ai/jobs
+Comments URL: https://news.ycombinator.com/item?id=48098122
+Points: 0
+# Comments: 0</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://ardoedo.it/kempelen/" target="_blank" rel="noopener">Chess puzzle I found in my dad&#x27;s old book</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://ardoedo.it/kempelen/
+Comments URL: https://news.ycombinator.com/item?id=48096760
+Points: 159
+# Comments: 43</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://asymco.com/2026/05/11/the-great-memory-panic-of-2026/" target="_blank" rel="noopener">How can Apple deal with the memory shortage?</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://asymco.com/2026/05/11/the-great-memory-panic-of-2026/
+Comments URL: https://news.ycombinator.com/item?id=48094986
+Points: 99
+# Comments: 102</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.xda-developers.com/linux-gaming-is-getting-faster-because-windows-apis-are-becoming-linux-kernel-features/" target="_blank" rel="noopener">Linux gaming is faster because Windows APIs are becoming Linux kernel features</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://www.xda-developers.com/linux-gaming-is-getting-faster-because-windows-apis-are-becoming-linux-kernel-features/
+Comments URL: https://news.ycombinator.com/item?id=48087887
+Points: 741
+# Comments: 478</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://joshuahhh.com/dims-of-feedback/" target="_blank" rel="noopener">Technical Dimensions of Live Feedback in Programming Systems</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://joshuahhh.com/dims-of-feedback/
+Comments URL: https://news.ycombinator.com/item?id=48084516
+Points: 8
+# Comments: 1</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.eff.org/pages/leaving-physical-world" target="_blank" rel="noopener">Leaving the Physical World</a></div>
+                <div class="meta">
+                    <span class="source-badge">Hacker News</span>
+                     <span class="hot">★★</span>
+                </div>
+                <div class="summary">Article URL: https://www.eff.org/pages/leaving-physical-world
+Comments URL: https://news.ycombinator.com/item?id=48084012
+Points: 6
+# Comments: 0</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/tinyhumansai/openhuman" target="_blank" rel="noopener">tinyhumansai/openhuman [Rust]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Your Personal AI super intelligence. Private, Simple and extremely powerful.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/rohitg00/agentmemory" target="_blank" rel="noopener">rohitg00/agentmemory [TypeScript]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">#1 Persistent memory for AI coding agents based on real-world benchmarks</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/obra/superpowers" target="_blank" rel="noopener">obra/superpowers [Shell]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">An agentic skills framework &amp; software development methodology that works.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/yikart/AiToEarn" target="_blank" rel="noopener">yikart/AiToEarn [TypeScript]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Let&#x27;s use AI to Earn!</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/influxdata/telegraf" target="_blank" rel="noopener">influxdata/telegraf [Go]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Agent for collecting, processing, aggregating, and writing metrics, logs, and other arbitrary data.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/millionco/react-doctor" target="_blank" rel="noopener">millionco/react-doctor [TypeScript]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Your agent writes bad React. This catches it</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/danielmiessler/Personal_AI_Infrastructure" target="_blank" rel="noopener">danielmiessler/Personal_AI_Infrastructure [TypeScript]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Agentic AI Infrastructure for magnifying HUMAN capabilities.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/supertone-inc/supertonic" target="_blank" rel="noopener">supertone-inc/supertonic [Swift]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Lightning-Fast, On-Device, Multilingual TTS — running natively via ONNX.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/CloakHQ/CloakBrowser" target="_blank" rel="noopener">CloakHQ/CloakBrowser [Python]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Stealth Chromium that passes every bot detection test. Drop-in Playwright replacement with source-level fingerprint patches. 30/30 tests passed.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/ArthurBrussee/brush" target="_blank" rel="noopener">ArthurBrussee/brush [Rust]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">3D Reconstruction for all</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/imthenachoman/How-To-Secure-A-Linux-Server" target="_blank" rel="noopener">imthenachoman/How-To-Secure-A-Linux-Server</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">An evolving how-to guide for securing a Linux server.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/apernet/hysteria" target="_blank" rel="noopener">apernet/hysteria [Go]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Hysteria is a powerful, lightning fast and censorship resistant proxy.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/ton-blockchain/acton" target="_blank" rel="noopener">ton-blockchain/acton [Rust]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Toolchain for TON smart contract development and beyond</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/trycua/cua" target="_blank" rel="noopener">trycua/cua [HTML]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Open-source infrastructure for Computer-Use Agents. Sandboxes, SDKs, and benchmarks to train and evaluate AI agents that can control full desktops (macOS, Linux, Windows).</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/github/spec-kit" target="_blank" rel="noopener">github/spec-kit [Python]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">💫 Toolkit to help you get started with Spec-Driven Development</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808972192161288?f=rss" target="_blank" rel="noopener">瑞华泰：产品位于产业链上游前端环节且距离终端应用层级较远，目前没有重要新增订单</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，瑞华泰公告，市场近期高度关注商业航天、PCB相关概念。现阶段，公司的主营业务为高性能聚酰亚胺薄膜的研发、生产和销售。公司在航天领域的业务多体现为项目合作研发模式，占总营业收入比例不足1%。公司产品位于产业链上游前端环节，距离终端应用层级较远，目前没有重要新增订单，对公司业绩影响有限。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12504" target="_blank" rel="noopener">Prime Successor Irreducibility: Turing Machine Complexity, Kolmogorov Complexity, and Weakness-Based Formulations</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12504v1 Announce Type: new 
+Abstract: We develop conjectures and theorems expressing the idea that the prime sequence exhibits computational irreducibility in the transition from one prime to its successor. Informally, given a prime pp p, no general algorithm can compute the least prime g</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12505" target="_blank" rel="noopener">Precautionary Governance of Autonomous AI: Legal Personhood as Functional Instrument</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12505v1 Announce Type: new 
+Abstract: Autonomous AI systems generate responsibility gaps: consequential actions that cannot be satisfactorily attributed to developers, operators, or users under existing legal frameworks. The prevailing subject-object dichotomy fails to accommodate entitie</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12506" target="_blank" rel="noopener">Scale-Gest: Scalable Model-Space Synthesis and Runtime Selection for On-Device Gesture Detection</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12506v1 Announce Type: new 
+Abstract: Realizing on-device ML-based gesture detection under tight real-time performance, energy and memory constraints is challenging, especially when considering mobile devices with varying battery-power levels. Existing EdgeAI deployments typically rely on</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12510" target="_blank" rel="noopener">WhatsApp Vaccine Discourse (WhaVax): An Expert-Annotated Dataset and Benchmark for Health Misinformation Detection</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12510v1 Announce Type: new 
+Abstract: We introduce WhaVax, a new expert-annotated dataset of vaccine-related WhatsApp messages collected from large Brazilian public groups spanning multiple pandemic years. The dataset was constructed through a rigorous, carefully designed pipeline that in</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12523" target="_blank" rel="noopener">Exploring how EFL students talk to and through AI to develop texts</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12523v1 Announce Type: new 
+Abstract: Generative Artificial Intelligence (AI) introduces new considerations for English as a foreign language (EFL) writing pedagogy. This study explores how students talk to and through AI by prompt engineering and negotiating authorship, respectively, and</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12533" target="_blank" rel="noopener">Investigation of Chaotic Behavior in Clapp Oscillator</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12533v1 Announce Type: new 
+Abstract: In this paper we investigate the chaotic behavior of the class of oscillators denoted as Clapp oscillators. Clapp oscillator is a simple oscillator containing one transistor and a few reactive elements - inductors and capacitors. This oscilllator is c</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/p/3807831328300549?f=rss" target="_blank" rel="noopener">36氪首发 | 九号领投一家AI智能影像设备公司，在巨头夹缝中年增长近4倍</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">作者&amp;nbsp;|&amp;nbsp;张子怡
+  编辑&amp;nbsp;|&amp;nbsp;袁斯来
+  硬氪获悉，智能体育影像品牌「XbotGo」（深眸远智）于近期完成近亿元的新一轮融资。由九号资本领投，元禾控股、不同资本跟投，老股东零一创投超额跟投，云岫资本担任长期独家财务顾问。
+  在青少年体育运动文化发达的美国，体育不仅仅是竞技，更是家庭生活的核心。相关数据显示，美国有超过3000万青少年参与专业体育训练，美国家庭每周花在孩子体育活动上的时间平均高达10小时。
+  然而，一个长期困扰家长的痛点是：在赛场上的手动拍摄，不仅让家长无法沉浸式享受比赛的“即时情绪价值”，更由于距离远、目标小、场面复杂，很难精准捕捉</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84287" target="_blank" rel="noopener">富士康证实遭遇网络攻击</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">在勒索组织 Nitrogen 宣布它窃取了 8TB 数据逾 1100 万文件后，富士康证实它在北美地区的部分工厂遭遇了网络攻击，称“网络安全团队立即启动响应机制，采取多项运营措施，确保生产和交付的连续性。受影响的工厂目前正在恢复正常生产”。Nitrogen 声称它窃取的文件包括了英特尔、苹果、Google、戴尔和英伟达等公司项目相关的技术图纸。这不是富士康第一次遭遇勒索组织的网络攻击，此前 LockBit 先后在 2022 年和 2024 年攻击了富士康旗下子公司。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84285" target="_blank" rel="noopener">欧盟的浏览器选择屏为 Firefox 增加了数百万用户</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">欧盟的 Digital Markets Act(DMA)强制要求苹果和 Google 向消费者提供浏览器选择屏，允许消费者选择非默认浏览器如 Safari 或 Chrome。Mozilla 估计，浏览器选择屏为它带来了大约 600 万用户，其中 iOS 平台上的用户数增长了 113%，而 Android 只增加 12%。这一差异可能与苹果和 Google 实现浏览器选择屏的方式有关：苹果用户在首次打开 Safari 时看到浏览器选择屏，而 Android 设备则是在首次启动或恢复出厂设置后。Mozilla 称，用户留存率比 DMA 实施前提高了五倍。浏览器开发商 Aloha、Brave、Ope</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84282" target="_blank" rel="noopener">Google 宣布以 AI 为核心的新笔电 Googlebook</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Google 宣布了运行桌面模式 Android 操作系统的新笔电 Googlebook，但除了一遍遍强调 AI、AI 以及 AI 外没有透露更多信息，比如实现 AI 操作所需的运算是否要借助于云端，是否会将用户在笔记本上的所有操作上传到云端，搜索巨人除了突出 AI 外没有解释是否存在类似微软 Recall 的隐私问题。Googlebook 和运行 Chrome OS 的 Chromebook 一样，由第三方公司宏碁、华硕、戴尔、惠普和联想制造和出售。Google 称 Googlebook 深度集成了 Gemini Intelligence，仅仅移动光标就能激活被称为“Magic Pointe</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/index/what-parameter-golf-taught-us" target="_blank" rel="noopener">What Parameter Golf taught us about AI-assisted research</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Parameter Golf brought together 1,000+ participants and 2,000+ submissions to explore AI-assisted machine learning research, coding agents, quantization, and novel model design under strict constraints.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://openai.com/business/guides-and-resources/how-enterprises-are-scaling-ai" target="_blank" rel="noopener">How enterprises are scaling AI</a></div>
+                <div class="meta">
+                    <span class="source-badge">OpenAI Blog</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">How enterprises scale AI: from early experiments to compounding impact through trust, governance, workflow design, and quality at scale.</div>
+            </div>
+        </div>
+        <div class="category-section">
+            <div class="category-header" style="border-bottom-color:#8b5cf640">
+                <span>📡</span>
+                <h2>科技</h2>
+                <span class="count">(20 条)</span>
+            </div>
+            
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808988019760645?f=rss" target="_blank" rel="noopener">中芯国际：预计二季度收入环比增长14%-16%，毛利率介于20%-22%范围内</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，中芯国际公告，2026年第二季度公司预期国际财务报告准则下的指引为：季度收入环比增长14%-16%，毛利率介于20%至22%的范围内。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808980527783687?f=rss" target="_blank" rel="noopener">中芯国际：2026年第一季度实现营业收入176.17亿元，同比增长8.1%</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，中芯国际发布2026年一季度业绩报告。报告显示，2026年第一季度实现营业收入176.17亿元，同比增长8.1%；归属于上市公司股东的净利润为13.61亿元，同比增长0.4%。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808975619694336?f=rss" target="_blank" rel="noopener">日本电机巨头尼得科承认大规模造假</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">日本电机巨头尼得科5月13日发布消息称，包括未经客户确认就擅自变更零部件、工序和设计等涉嫌与产品质量相关的不当行为超过1000起。尼得科将设立外部专家组成的调查委员会，大致在8月底完成查清事实关系与探明原因的工作。（界面）</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808955784650496?f=rss" target="_blank" rel="noopener">天风证券：董事、总裁王琳晶离任</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，天风证券公告，公司董事会于近期收到王琳晶递交的书面辞职报告。因个人原因，王琳晶申请辞去董事、总裁职务。公司于5月14日召开第四届董事会审议通过《关于聘任公司总裁的议案》，同意聘任罗国华为公司总裁。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808953126657543?f=rss" target="_blank" rel="noopener">阿里健康：2025全年营收342.6亿元，预估351.2亿元</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，阿里健康发布截至2026年3月31日止年度全年业绩公告。财报显示，2025全年营收342.6亿元，同比增长12%；报告期内净利润额为19.36亿元，同比增长35.2%。调整后净利润额为23.26亿元，同比增长19.3%，调整后净利润率从6.4%提升至6.8%。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808948445683201?f=rss" target="_blank" rel="noopener">金橙子：拟以现金1.79亿元收购萨米特55%股权</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，金橙子公告，公司董事会审议通过调整购买资产方案，改为以现金方式收购长春萨米特光电科技有限公司55%股权，交易价格为1.79亿元。本次交易不构成关联交易及重大资产重组，完成后萨米特将成为公司控股子公司。标的公司长期从事精密光电控制产品的研发、生产及销售，主要产品为快速反射镜，并已拓展高精密振镜等产品。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808942432263939?f=rss" target="_blank" rel="noopener">民调显示，逾七成美国人反对在家附近建AI数据中心</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">盖洛普（Gallup）的最新民调发现，高达71%的美国人表示不希望居住地附近建设数据中心，这远远超过了反对在居住地附近建造核电站的比例（53%）。而在所有的受访者中，有48%的人表示他们“强烈反对”。民众的反对声浪已成为美国发展AI的一大障碍。由于民众的抗议，美国多个备受关注的数据中心项目已经被迫取消或缩减规模。（财联社）</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808930156207618?f=rss" target="_blank" rel="noopener">*ST亚士：公司下属重庆工厂、石家庄工厂、滁州防水工厂目前处于停产停工状态，广州工厂停止建设</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，*ST亚士公告，经公司自查，公司内外部经营环境和主营业务未发生重大变化。受房地产和建筑行业持续疲软和订单大幅下滑影响，公司下属重庆工厂、石家庄工厂、滁州防水工厂目前处于停产停工状态。同时，鉴于当前产能利用率处于较低水平，广州工厂也已停止建设。后续公司将根据经营发展情况的变化，对上述停工停产及停建工厂进行妥善安排与处置。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808920709799424?f=rss" target="_blank" rel="noopener">理工导航：股东拟合计减持不超3%股份</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，理工导航公告，持股5%以上股东资产经营公司及其一致行动人技术转移公司因自身资金需要，计划通过集中竞价和大宗交易方式减持合计不超过264万股，即不超过公司总股本的3%。减持期间为公告披露之日起15个交易日后的3个月内。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808914741976576?f=rss" target="_blank" rel="noopener">央行：将于5月15日开展3000亿元买断式逆回购操作，期限为6个月</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，为保持银行体系流动性充裕，2026年5月15日，中国人民银行将以固定数量、利率招标、多重价位中标方式开展3000亿元买断式逆回购操作，期限为6个月（184天），到期日为2026年11月15日（遇节假日顺延）。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84294" target="_blank" rel="noopener">哈佛教师就是否限制学生获得 A 进行投票</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">美国名校面临成绩膨胀问题。以哈佛大学为例，六成本科生拿到了 A，而十年前这一比例只有 40%，二十年前不到 25%，2025 年有逾 50 名学生以完美的 GPA——即所有课都拿到了 A——成绩毕业。为遏制成绩膨胀，哈佛教职工正就一项提议进行投票，该提议包括：将每门课获得 A 的学生比例限制在 20%，每门课额外增加四个 A 评分；学校荣誉的计算方式从传统的 GPA 改为平均百分位排名；课程使用新的合格、不合格、合格+ 评分。对教职工的调查显示，205 名受访者六成支持“20+4”的评分方案。额外的 4 个 A 有助于小型研讨班，这些班级里的学生通常成绩更好。如果投票通过，新变更将于 2027</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84293" target="_blank" rel="noopener">Meta 员工抗议公司对其鼠标移动和按键的跟踪</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Meta 最近开始在美国员工电脑上安装追踪软件，捕捉员工鼠标移动、点击和按键数据以用于训练 AI 模型，此举是该公司构建能自动执行工作任务的 AI 智能体的大计划的一部分。被称为 Model Capability Initiative(MCI)的工具将在工作相关应用和网站上运行，会不定时截取屏幕内容的快照。本周二 Meta 员工在多个办公室散发传单抗议公司的跟踪软件。传单出现在办公室会议室、自动售货机和卫生纸架上，鼓励员工签署一份反对跟踪软件的在线请愿书。传单和请愿书援引了法律 U.S. National Labor Relations Act，称当选择组织起来改善工作条件时员工的行为受到法律</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84292" target="_blank" rel="noopener">Windows Update 将自动回滚问题驱动</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">微软正为其更新程序 Windows Update 引入名为 Cloud-Initiated Driver Recovery 的功能，在更新了一个有问题的驱动程序之后该功能将自动回滚到之前正常工作的版本，无需硬件制造商去修复或用户自己动手去修复。目前问题驱动的处理流程是让硬件制造商负责推送更新或用户手动卸载问题驱动。Cloud-Initiated Driver Recovery 将允许微软远超触发驱动回滚。该功能的测试和验证工作将持续到 8 月，计划 9 月推送给 Windows 用户。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/p/3807535484886786?f=rss" target="_blank" rel="noopener">独家对谈｜林琳：一位耶鲁MBA裸辞转行卖保险之后</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">图源：公众号「职场Bonus」（ID：ZhiChangHongLi）
+  林琳有着外人眼中“光鲜”的履历：中国人民大学本科、耶鲁大学MBA，从一级市场与二级市场投研起步，深耕企业咨询培训近十年。
+  35岁后，这位履历光鲜的女孩跨界切入财富管理赛道，成为一名保险代理人。
+  她很少向外人提起，自��曾经历两次裸辞，一年空窗期里几度陷入迷茫。
+  如今，她用“中年觉醒”形容自己的状态——“做成啥样都可以，允许一切发生”。我们想结合她的职业经历与深度对话，拆解一位高学历职场人在35+阶段的转型逻辑，以及她对“成长”、“价值”，与“职场选择”的思考。
+  以下为访谈实录，部分措辞经《职场Bonus》</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84291" target="_blank" rel="noopener">被解雇兄弟删了 96 个数据库</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">企业员工在被解雇前其凭证会提前失效，因为被解雇的员工是安全隐患。一对被同一家公司解雇的双胞胎兄弟 Muneeb 和 Sohaib Akhter 在几分钟内删掉了 96 个美国政府数据库。两兄弟有犯罪前科，曾因为犯罪行为被判刑，但 2023 年和 2024 年两人先后被同一家公司雇佣。雇主在 2025 年 2 月知道了他们过去的行为，立即解雇了他们。然而 Sohaib 的账号被关闭了，但其兄弟 Muneeb 的账号却被忽略了，Muneeb 立即采取行动对公司进行破坏，他删除了公司维护的美国政府数据库，并且还询问 AI 工具删库后如何清除服务器上的系统日志。两人最终于 12 月 3 日被捕，202</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84290" target="_blank" rel="noopener">Kickstarter 禁止成人内容</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">众筹平台 Kickstarter 过去几天修改了规则，扩大了禁止的成人内容范围。此前它只禁止“色情内容”，如今显著扩大了成人内容范围，包括但不限于：暗示性行为，MILF/DILF 内容，暗示性裸露，任何包含女性乳头/乳晕、生殖器和肛门的内容。它甚至还禁止了屁股。暂时不清楚 Kickstarter 为什么要这么做。媒体猜测可能是来自支付公司 Stripe 的压力。Kickstarter 曾在 3 月向众筹项目的发起人发邮件，警告 Stripe 将对任何包含“成人/NSFW 内容”的项目进行审核，可能会关闭项目的筹款账号。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84286" target="_blank" rel="noopener">亚马逊员工用 AI 工具刷分</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">亚马逊员工正利用一款内部 AI 工具，把一些并无必要的工作自动化，以向管理层显示自己更频繁地使用了这项技术。亚马逊最近几周开始大规模部署其自研产品“MeshClaw”，它允许员工创建可接入办公软件、并代替用户执行任务的 AI 智能体。一些员工表示，有同事正利用这套软件，把额外、其实并无必要的 AI 操作也自动化，只为提高自己的 token 消耗量。亚马逊设定了目标，要求逾八成开发者每周使用 AI，还在今年早些时候开始在内部排行榜上追踪 AI token 的使用情况，给员工带来了采用该技术的压力。于是部分员工利用 MeshClaw 最大化 token 消耗量。亚马逊告诉员工，AI token 统</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84284" target="_blank" rel="noopener">FCC 允许外国路由器在 2029 年前继续获得更新</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">今年 3 月 FCC 将所有外国制造的消费级路由器加入到监管清单，在美国禁售此类产品。FCC 给出的理由是国家安全，称“恶意行为者利用外国制造路由器的安全漏洞攻击美国家庭、破坏网络、进行间谍活动和窃取知识产权”。美国居民仍然可以使用现有的外国制造路由器，外国制造商允许在 2027 年 3 月之前向美国客户提供有限的维护和安全补丁。现在 FCC 将这一期限延长到 2029 年 1 月，除了提供安全补丁外，外国路由器制造商还允许提供大型的软件和固件更新。此举旨在为美国居民使用的外国路由器提供持久的安全，为更换设备留出更多的时间。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84279" target="_blank" rel="noopener">欧盟准备对 TikTok 和 Instagram 的成瘾性设计采取行动</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">欧盟委员会主席 Ursula von der Leyen 周二表示欧盟将在今年晚些时候对 TikTok 和 Instagram 等平台上的成瘾性设计功能采取行动。此类功能包括了无限滚动、自动播放和推送通知。欧盟委员会最早将在今年夏天公布一项法律提议，目前正在等待 Special Panel of experts on Child Safety Online 的调查报告。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84277" target="_blank" rel="noopener">Digg 再次尝试重启，将转向 AI 新闻聚合</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">Digg 今年一月初上线了一个 Reddit 克隆版本，提供类似的基于兴趣的社区。但两个月后就宣布关闭，理由是机器人账号泛滥。现在 Digg 准备再次尝试重启，这一次是转向它曾经的模样：新闻聚合。Digg 向 Beta 测试用户展示了新网站的预览，目标是追踪某个领域最具影响力的声音，推送真正值得关注的新闻。AI 是 Digg 目前测试的领域，如果成功将扩展到其他主题。Digg 会实时从 X 抓取内容以判断讨论热点，同时还会进行情感分析、聚类分析和信号检测，判断哪些内容最重要。</div>
+            </div>
+        </div>
+        <div class="category-section">
+            <div class="category-header" style="border-bottom-color:#ef444440">
+                <span>🌍</span>
+                <h2>政治</h2>
+                <span class="count">(1 条)</span>
+            </div>
+            
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/p/3807540422942214?f=rss" target="_blank" rel="noopener">氪星晚报｜腾讯刘炽平：腾讯没有大裁员计划；中美在韩国举行经贸磋商；马斯克称星舰第12次试飞将于下周进行</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">大公司：
+  腾讯：Hy3 preview调用量持续居OpenRouter榜首，Agent密集发布
+  36氪获悉，腾讯发布2026年第一季度财报，AI全线提速。其中，混元不到三个月完成重建，Hy3 preview在上下文、Agent、Coding等能力上显著提升。OpenRouter数据显示，Hy3 preview结束限免期后，日Token用量和周Token调用量仍保持榜首；4月27日至5月11日连续三周登顶OpenRouter周榜总榜。今年以来，腾讯累计上线数十款通用和垂直场景Agent。
+  腾讯刘炽平：腾讯没有大裁员计划
+  在腾讯股东大会上，对于腾讯是否会大裁员的问题，腾讯总裁刘炽平</div>
+            </div>
+        </div>
+        <div class="category-section">
+            <div class="category-header" style="border-bottom-color:#f59e0b40">
+                <span>💰</span>
+                <h2>经济</h2>
+                <span class="count">(14 条)</span>
+            </div>
+            
+            <div class="article-card">
+                <div class="title"><a href="https://www.bbc.com/news/articles/c202pgxx89lo" target="_blank" rel="noopener">US inflation jumps to 3.8% as energy costs surge from Iran war</a></div>
+                <div class="meta">
+                    <span class="source-badge">HN Best</span>
+                     <span class="hot">★★★★★</span>
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808987182538504?f=rss" target="_blank" rel="noopener">中船特气：近期部分下游客户就六氟化钨产品与公司业务洽谈增加，但未签署新的长期或大额实质性订单协议</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，中船特气公告，公司关注到近期媒体报道及市场传闻涉及日本六氟化钨供应商减产事项。受钨相关物项出口管制及钨矿开采总量管控等政策影响，上游钨原料供应趋紧，近期部分下游客户就六氟化钨产品与公司业务洽谈增加，但目前尚未签署新的长期或大额实质性订单协议，后续合作及对公司经营业绩的影响存在不确定性。同时，公司关注到个别网络平台存在涉及公司六氟化钨产品产能、产品价格、产品规格等不实内容，公司提醒广大投资者以正式公告为准。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808981370199554?f=rss" target="_blank" rel="noopener">3连板可川科技：可川光子相关产品后续市场接受度、市场份额存在重大不确定性</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，可川科技公告，全资子公司可川光子相关产品后续市场接受度、市场份额存在重大不确定性，存在业务拓展受阻、无法取得预期市场占有率的风险，未来能否取得订单具有重大不确定性；技术研发进度存在不达预期，面临市场竞争加剧及技术迭代的风险；后续可能面临宏观经济、行业政策变化等不可预测因素或不可抗力的影响，未来经营情况、经营业绩均存在重大不确定性。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808977547779587?f=rss" target="_blank" rel="noopener">3天2板泰和新材：泰普龙®对位芳纶及其制品在光缆领域的收入占主营业务收入的比例不足10%</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，泰和新材公告，近期与投资者交流的过程中，部分投资者对对位芳纶在光纤光缆中的应用比较关注。公司的泰普龙®对位芳纶及其制品具有高强度、高模量等特点，可应用于光缆、汽车、安全防护等领域。2025年，公司的泰普龙®对位芳纶及其制品在光缆领域的收入占主营业务收入的比例不足10%，对公司业绩影响较小。2026年1-4月份，上述占比未发生明显变化。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808953843130113?f=rss" target="_blank" rel="noopener">美三大养老金联名致信马斯克：反对SpaceX治理结构，管理层权力过大</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">据报道，美国三大公共养老基金的领导层对即将IPO的SpaceX感到担忧，因其股权结构中存在“极端”的所有权安排和控制结构，致使公司管理层权力过大。他们要求SpaceX取消超级投票权、设立外部股东占多数的董事会等。这些养老金因持有纳斯达克指数组合，预计成为SpaceX的大型被动持有者。（界面）</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808951508557575?f=rss" target="_blank" rel="noopener">曹操出行拟启动最高2亿港元股份回购计划，称当前股价未充分反映公司价值</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">5月14日，曹操出行发布公告，拟自2026年5月14日起一年内，以最高总额2亿港元自有资金，在公开市场回购公司股份。曹操出行董事会认为，公司股份当前的交易价格未能充分反映其内在价值。此次回购计划将进一步保障全体股东利益，提升投资者信心，为股东创造长期价值。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808936055266823?f=rss" target="_blank" rel="noopener">赛意信息：拟开展以高性能算力服务器为标的的融资租赁业务，交易总额预计不超过200亿元</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，赛意信息公告，公司董事会审议通过《关于拟开展融资租赁业务的议案》，为拓宽融资渠道、优化财务结构，公司及子公司拟以高性能算力服务器为标的开展融资租赁业务，交易总额预计不超过200亿元。该议案尚需提交股东会审议，授权期限自股东会审批通过之日起12个月内有效。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808910970593029?f=rss" target="_blank" rel="noopener">央行：前四个月人民币贷款增加8.59万亿元</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，央行数据显示，前四个月人民币贷款增加8.59万亿元。4月末，本外币贷款余额284.29万亿元，同比增长5.5%。月末人民币贷款余额280.5万亿元，同比增长5.6%。前四个月人民币贷款增加8.59万亿元。分部门看，住户贷款减少4902亿元，其中，短期贷款减少6102亿元，中长期贷款增加1199亿元；企（事）业单位贷款增加8.99万亿元，其中，短期贷款增加3.67万亿元，中长期贷款增加5.01万亿元，票据融资增加1429亿元；非银行业金融机构贷款减少1935亿元。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808910234181376?f=rss" target="_blank" rel="noopener">央行：前四个月社会融资规模增量累计为15.45万亿元，比上年同期少8930亿元</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，央行数据显示，初步统计，2026年前四个月社会融资规模增量累计为15.45万亿元，比上年同期少8930亿元。其中，对实体经济发放的人民币贷款增加8.5万亿元，同比少增1.29万亿元；对实体经济发放的外币贷款折合人民币增加1036亿元，同比多增2134亿元；委托贷款减少941亿元，同比多减994亿元；信托贷款增加3亿元，同比少增451亿元；未贴现的银行承兑汇票增加513亿元，同比少增1992亿元；企业债券净融资1.5万亿元，同比多7393亿元。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/p/3808772503199489?f=rss" target="_blank" rel="noopener">与近10家整机厂达成合作，专注打造航空电推进“中国心”，「羽嘉动力」连续完成两轮融资｜36氪首发</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">文&amp;nbsp;|&amp;nbsp;阿至
+  当低空经济从政策概念走向产业化落地，一场关于“动力心脏”的落地卡位战也在悄然展开。
+  36氪获悉，航空电推进系统研制商羽嘉动力科技（常州）有限公司（以下简称“羽嘉动力”）近日宣布连续完成天使+、天使++两轮融资，累计金额数千万元，投资方包括益华投资、元禾控股、常高新、常金控，所筹资金将主要用于技术研发、人才队伍补充和产线扩建。加上去年7月完成的天使轮，羽嘉动力在不到一年的时间内完成了近亿元融资。
+  羽嘉动力成立于2024年2月，致力于为中大型电动航空器和特种装备提供轻量化、高可靠、性能卓越的“中国心”。公司创始人刘业本硕博均就读于南京航空航天大学电气工</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/p/3808685381885700?f=rss" target="_blank" rel="noopener">万科最值钱的资产浮出水面</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">作者&amp;nbsp;|&amp;nbsp;王晗玉
+  编辑&amp;nbsp;|&amp;nbsp;张帆
+  从王石辟谣“被抓”，到今年一季度持续亏损、瘦身，拟32.7亿元转让环山集团股权，进入2026年的万科，依旧深陷舆论漩涡。
+  风波不断的背景下，普洛斯再度赴港IPO的传闻对当下的万科来说可算是一个利好消息。
+  此前据多家媒体援引消息人士称，全球物流及新型基础设施巨头普洛斯（GLP）计划最快于今年第二季度向港交所递交上市申请。此次IPO目标集资额不少于10亿美元，公司目标估值约达200亿美元。
+  尽管普洛斯官方对上市传闻表示“不予置评”，不过若能成功登陆联交所，一方面普洛斯可借此一举回报投资人；另一方面，一直化</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12527" target="_blank" rel="noopener">Beyond Centralization: User-Controlled Federated Recommendations in Practice</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12527v1 Announce Type: new 
+Abstract: Recommendation systems typically require centralized user data, limiting user control and raising privacy concerns. Federated learning offers an alternative by keeping data on-device, but its impact on real user behavior remains largely unexplored. We</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/p/3807162054106624?f=rss" target="_blank" rel="noopener">30万亿细胞迷宫里寻路，MIT博士7年跑出一家上市公司</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">文 | 胡香赟
+  编辑 | 海若镜
+  5月13日，招股书秘交三个多月后，37岁的赖才达带领剂泰科技登陆港交所。开盘上涨170%，上市首日收涨127%，市值超270亿港币。
+  在这位带着几分书生气的麻省理工学院(MIT)化工博士背后，站着贝莱德、瑞银、国新基金、高瓴等基石投资机构，香港公开发售环节超购6900倍。
+  从成立到IPO，剂泰科技用了七年时间。2019年，晶泰科技内部筹备孵化剂泰科技，由时任执行COO赖才达牵头。他与晶泰科技联合创始人温书豪渊源颇深，两人博士都毕业于MIT。温书豪曾向投资人推荐称：“Chris(赖才达)和我有点像，但能力在我之上。”彼时，晶泰科技的估值已近10亿</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84283" target="_blank" rel="noopener">韩国总统幕僚提议向全民发放“ AI 红利”</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">韩国总统府政策室长金容范(Kim Yong-beom)在 Facebook 上发帖，提议将韩国芯片制造商一部分激增的利润进行再分配，将 AI 繁荣所产生的利润与全体公民共享。金容范认为 AI 带来的经济收益至少部分是建立在韩国过去五十年建设的工业基础设施之上，他指出 AI 时代的超额利润是集中化的，少数芯片公司和少数人获得巨额收益。上个月数万民众聚集在三星主要芯片工厂外，要求员工获得更高的 AI 利润分成。三星工会要求将 15% 的营业利润分配给芯片部门员工。工会威胁将于 5 月 21 日开始为期 18 天的罢工。</div>
+            </div>
+        </div>
+        <div class="category-section">
+            <div class="category-header" style="border-bottom-color:#10b98140">
+                <span>🔬</span>
+                <h2>科学</h2>
+                <span class="count">(10 条)</span>
+            </div>
+            
+            <div class="article-card">
+                <div class="title"><a href="https://github.com/K-Dense-AI/scientific-agent-skills" target="_blank" rel="noopener">K-Dense-AI/scientific-agent-skills [Python]</a></div>
+                <div class="meta">
+                    <span class="source-badge">GitHub Trending</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">A set of ready to use Agent Skills for research, science, engineering, analysis, finance and writing.</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/newsflashes/3808969065275144?f=rss" target="_blank" rel="noopener">全球首个高油大豆转化体进入产业化</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">36氪获悉，近日，由武汉艾迪晶生物科技有限公司联合中国农业科学院油料作物研究所研发的高油大豆转化体WRI1ox-1获批农业转基因生物安全证书（生产应用）（农基安证字〔2026〕第70号）。这是国内首个（也是全球首个）以高油为目标性状获批的大豆转化体，标志着继耐除草剂及抗虫之后，我国高油大豆生物育种正式进入产业化应用新阶段。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84296" target="_blank" rel="noopener">天文学家观测 120 亿年前极小星系 LAP1-B</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">根据发表在《自然》期刊上的一项研究，一个国际天文学团队对诞生于宇宙形成后约 8 亿年的极小星系“LAP1-B”成功进行观测。该星系所含的氧是迄今发现的星系中最少的，也几乎没有重元素，处于成长初期状态。天文学家是利用引力透镜效应使用 NASA 韦伯望远镜对其进行了逾 30 小时的高灵敏度光谱观测。结果显示，星系中氧的比例是太阳的 1/240 以下，与氧相比，碳的比例极高。这意味着很可能捕捉到了第一代恒星发生超新星爆炸后不久的状态。银河系恒星总质量约为太阳的 1000 亿倍，而 LAP1-B 的恒星总质量极小，仅为太阳的 3300 倍以下，天体的大部分由未知的“暗物质”构成。LAP1-B 可能是银</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84295" target="_blank" rel="noopener">肥胖率在发展中国家加速</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">根据发表在《自然》期刊上的一项研究，过去 45 年肥胖率在中低收入国家持续上升，但在许多高收入国家已趋于平稳。研究基于对 200 个国家和地区 2.32 亿人的大规模数据分析，发现在不同国家、年龄组和性别之间的肥胖发展轨迹存在显著差异。在西欧、北美和澳大拉西亚等地区的高收入国家，肥胖率在研究初期呈上升趋势，但随后在多数国家都趋于平稳，尽管肥胖患病率存在差异。例如，在西欧不同国家，成人肥胖患病率稳定在 11% 至 23%之 间，儿童和青少年则稳定在 4% 至 15% 之间。相比之下，部分中低收入国家的肥胖率却急剧上升，在中欧（如罗马尼亚和捷克）及拉丁美洲（如巴西）的某些国家，成人肥胖率已达到 3</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://36kr.com/p/3808769298767369?f=rss" target="_blank" rel="noopener">03年创始人造火箭，40万做出原型发动机，选了一条没人走过的路｜产业专访</a></div>
+                <div class="meta">
+                    <span class="source-badge">36氪</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">文&amp;nbsp;|&amp;nbsp;阿至
+  执宇航天创始人张子瀚看起来不像一个还在读大学的本科生。
+  他说话语速略快，不苟言笑，气质有些老练，习惯用三段式推演的方式来回答问题：先给结论，再拆解前提和路线，最后补充例外或风险。
+  用张子瀚自己的话说，他是一个“几乎百分百理性的人，没有任何感性因素去参与我的任何决策”。
+  这种气质和航天领域有着天然的契合，极度理性、高度自省、目标驱动。但作为闯入这个赛道的异类创业者，他身上又有着天然的矛盾点——过于年轻、没有“背景”、不拘传统。
+  小学二年级参加航模国赛获一等奖、初一在自己的实验室用化学药剂合成固体燃料、高二通过自学自考拿到5门全A提前完成学业，</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://arxiv.org/abs/2605.12525" target="_blank" rel="noopener">PERCEIVE: A Benchmark for Personalized Emotion and Communication Behavior Understanding on Social Media</a></div>
+                <div class="meta">
+                    <span class="source-badge">ArXiv CS</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">arXiv:2605.12525v1 Announce Type: new 
+Abstract: Current emotion analysis in social media is predominantly author-centric, failing to capture the subjective nature of emotional responses across diverse readers. This paradigm overlooks the crucial link between individual perception, communication beh</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84288" target="_blank" rel="noopener">艺术和文化活动与延缓衰老相关</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">根据发表在《Innovation in Aging》期刊上的一项研究，唱歌、绘画、参观美术馆或博物馆有助于延缓衰老，这项研究将积极参与艺术文化活动与健康改善联系起来。延缓衰老速度并不一定意味着寿命更长。研究使用“表观遗传时钟”评估生物衰老，可预测未来的发病率和死亡率。根据研究使用的一种评估方法，每周至少进行一次艺术活动的人，其衰老速度减缓了 4%；而每月进行一次则减缓了 3%。另一项测试表明，每周至少进行一次艺术活动的人，其生理年龄平均比很少参与此类活动的人年轻一岁。而每周锻炼一次的人，按此标准仅年轻六个月。研究人员表示，艺术对延缓衰老速度是如此显著，堪比吸烟者和戒烟者之间的差异。</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84281" target="_blank" rel="noopener">社媒上的毒性</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">2025 年 12 月斯坦福大学的研究人员分析了 22 亿条社媒帖子，寻找模式识别发布有毒内容的用户比例。所谓有毒内容指的是充斥着仇恨的极端主义内容。那么发布有毒内容的用户比例多高呢？可能比你想象的低得多，但此类内容被推荐算法放大而让很多人以为它们是主流。在 Twitter/X 上，有毒推文的转发量比非有毒推文高约 86%，曝光度高约 27%；0.3% 的用户分享了 80% 的争议新闻；6% 的用户发布了约 73% 的政治推文。在 TikTok 上，25% 的用户发布了 98% 的公开视频。具体数字有所不同，但本质相同：少数活跃用户压倒了绝大多数用户。研究人员发现的社媒模式是：沉默的大多数，因</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84280" target="_blank" rel="noopener">土星冰环可能源自其卫星</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">长期以来，土星环究竟是如何形成的，一直都是争论的焦点。最新的数值模拟指出，壮丽的行星环系统并非与土星同时诞生，而是在约 1 亿年前才形成。这项由美中联合研究团队提出的假说，将环的起源归功于一颗被命名为蝶蛹（Chrysalis）的古老卫星，在强大引力作用下发生的结构性毁灭。该卫星的物理规格与现今的土星第三大卫星土卫八（Iapetus）相仿，直径约 1,469 公里，且具备分层化的内部结构，由岩石核心与外层冰壳组成。研究指出，蝶蛹卫星原本运行于非常狭长的椭圆轨道，最近轨道距离土星半径的1至1.5倍区域，这正是冰质天体的洛希极限（Roche limit）临界范围。在此区域内，土星强大的潮汐力克服了卫</div>
+            </div>
+            <div class="article-card">
+                <div class="title"><a href="https://www.solidot.org/story?sid=84278" target="_blank" rel="noopener">研究发现工作时间减少与肥胖率下降相关</a></div>
+                <div class="meta">
+                    <span class="source-badge">Solidot</span>
+                     <span class="hot">★</span>
+                </div>
+                <div class="summary">欧洲肥胖大会公布的一项研究比较了 1990-2022 年间 33 个经合组织国家的工作模式和肥胖率。结果发现，美国、墨西哥和哥伦比亚等年工作时间较长的国家肥胖率也更高，即使北欧国家的平均能量和脂肪摄入量高于拉美国家。年工作时间减少 1% 与肥胖率下降 0.16% 相关。研究人员认为，工作压力和缺乏锻炼时间可能是工作时长更多的人容易发胖的原因。研究主要作者、澳大利亚昆士兰大学的 Pradeepa Korale-Gedara 博士表示，压力增加会提高皮质醇激素水平，导致人们在无法消耗能量的工作中储存更多脂肪。研究人员强调这一发现是相关性的，并不代表因果关系。但它促使专家再次呼吁推行四天工作制，四天</div>
+            </div>
+        </div>
+
+    <footer>生成时间: 2026-05-14 10:40 UTC · <a href="https://github.com/xiaoyu180122/daily-digest" style="color:var(--text-secondary)">源码</a></footer>
+</div>
+</body>
+</html>
